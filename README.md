@@ -14,6 +14,8 @@ Board: **SSN32 (ESP32-WROOM-32E)** → `board = esp32dev`.
 | 16 | Wiegand **D1** | KR602E white, via 10k/15k divider |
 | 12 | **Unlock trigger** | → transistor → AP108 `PUSH` (active-HIGH pulse). **Strapping pin — keep LOW at boot + external 10k pull-down.** |
 | 21 | **Exit / PUSH sense** | AP108 `PUSH` via divider; idle HIGH, press LOW |
+| 14 | **Reader LED** | Optocoupler control, active-HIGH |
+| 27 | **Beeper** | Optocoupler control, active-HIGH |
 
 Reader power is 12 V from the AP108, **not** the ESP32. All grounds common.
 
@@ -24,6 +26,8 @@ Reader power is 12 V from the AP108, **not** the ESP32. All grounds common.
 | `wiegand-test` | Card reader — prints bit count + facility/card + parity per tap | `pio run -e wiegand-test -t upload -t monitor` |
 | `lock-test` | Drop-bolt unlock — send `u` to fire one PUSH pulse (**mentor present**) | `pio run -e lock-test -t upload -t monitor` |
 | `pulse-test` | Exit-button / PUSH sense — counts falling edges | `pio run -e pulse-test -t upload -t monitor` |
+| `led-test` | Send `G` to drive the reader LED for 5 seconds | `pio run -e led-test -t upload -t monitor` |
+| `beeper-test` | Send `G` to drive the beeper for 1 second | `pio run -e beeper-test -t upload -t monitor` |
 | `esp32dev` | Main app (stub) | `pio run -e esp32dev -t upload -t monitor` |
 
 Each test env compiles only its own `test/<name>/main.cpp` via
