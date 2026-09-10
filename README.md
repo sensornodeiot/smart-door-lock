@@ -11,7 +11,7 @@ Board: **SSN32 (ESP32-WROOM-32E)** → `board = esp32dev`.
 | GPIO | Signal | Wiring |
 |------|--------|--------|
 | 4  | Wiegand **D0** | KR602E green, via 10k/15k divider (5 V → 3.0 V) |
-| 16 | Wiegand **D1** | KR602E white, via 10k/15k divider |
+| 25 | Wiegand **D1** | KR602E white, via 10k/15k divider |
 | 12 | **Unlock trigger** | → transistor → AP108 `PUSH` (active-HIGH pulse). **Strapping pin — keep LOW at boot + external 10k pull-down.** |
 | 21 | **Exit / PUSH sense** | AP108 `PUSH` via divider; idle HIGH, press LOW |
 | 14 | **Reader LED** | Optocoupler control, active-HIGH |
