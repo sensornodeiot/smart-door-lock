@@ -28,6 +28,7 @@ Reader power is 12 V from the AP108, **not** the ESP32. All grounds common.
 | `pulse-test` | Exit-button / PUSH sense — counts falling edges | `pio run -e pulse-test -t upload -t monitor` |
 | `led-test` | Send `G` to drive the reader LED for 5 seconds | `pio run -e led-test -t upload -t monitor` |
 | `beeper-test` | Send `G` to drive the beeper for 1 second | `pio run -e beeper-test -t upload -t monitor` |
+| `integration-test` | Hardware-in-the-loop test; use `feedback` or exact `UNLOCK` command | `pio run -e integration-test -t upload -t monitor` |
 | `esp32dev` | Main app (stub) | `pio run -e esp32dev -t upload -t monitor` |
 
 Each test env compiles only its own `test/<name>/main.cpp` via
